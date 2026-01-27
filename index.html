@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda 2030: ODS Interactivo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Agenda 2030</h1>
+        <p>Haz clic en cada objetivo para conocer más.</p>
+    </header>
+
+    <main>
+        <section id="ods-grid">
+            <div class="grid-container">
+                <div class="ods-card color-1" data-title="Fin de la Pobreza" data-desc="Erradicar la pobreza en todas sus formas en todo el mundo para 2030."><span>1</span> Fin de la Pobreza</div>
+                <div class="ods-card color-2" data-title="Hambre Cero" data-desc="Poner fin al hambre, lograr la seguridad alimentaria y la mejora de la nutrición."><span>2</span> Hambre Cero</div>
+                <div class="ods-card color-3" data-title="Salud y Bienestar" data-desc="Garantizar una vida sana y promover el bienestar para todos en todas las edades."><span>3</span> Salud y Bienestar</div>
+                <div class="ods-card color-4" data-title="Educación de Calidad" data-desc="Garantizar una educación inclusiva, equitativa y de calidad."><span>4</span> Educación de Calidad</div>
+                <div class="ods-card color-5" data-title="Igualdad de Género" data-desc="Lograr la igualdad entre los géneros y empoderar a todas las mujeres y las niñas."><span>5</span> Igualdad de Género</div>
+                <div class="ods-card color-6" data-title="Agua y Saneamiento" data-desc="Garantizar la disponibilidad de agua y su gestión sostenible."><span>6</span> Agua Limpia</div>
+                <div class="ods-card color-7" data-title="Energía Asequible" data-desc="Garantizar el acceso a una energía asequible, segura y sostenible."><span>7</span> Energía Asequible</div>
+                <div class="ods-card color-8" data-title="Trabajo Decente" data-desc="Promover el crecimiento económico sostenido y el trabajo decente para todos."><span>8</span> Trabajo Decente</div>
+                <div class="ods-card color-9" data-title="Industria e Innovación" data-desc="Construir infraestructuras resilientes y fomentar la innovación."><span>9</span> Industria</div>
+                <div class="ods-card color-10" data-title="Reducción de Desigualdades" data-desc="Reducir la desigualdad en y entre los países."><span>10</span> Desigualdades</div>
+                <div class="ods-card color-11" data-title="Ciudades Sostenibles" data-desc="Lograr que las ciudades sean inclusivas, seguras y resilientes."><span>11</span> Ciudades</div>
+                <div class="ods-card color-12" data-title="Consumo Responsable" data-desc="Garantizar modalidades de consumo y producción sostenibles."><span>12</span> Producción</div>
+                <div class="ods-card color-13" data-title="Acción por el Clima" data-desc="Adoptar medidas urgentes para combatir el cambio climático."><span>13</span> Clima</div>
+                <div class="ods-card color-14" data-title="Vida Submarina" data-desc="Conservar los océanos, los mares y los recursos marinos."><span>14</span> Vida Submarina</div>
+                <div class="ods-card color-15" data-title="Vida de Ecosistemas" data-desc="Gestionar sosteniblemente los bosques y luchar contra la desertificación."><span>15</span> Ecosistemas</div>
+                <div class="ods-card color-16" data-title="Paz y Justicia" data-desc="Promover sociedades justas, pacíficas e inclusivas."><span>16</span> Paz y Justicia</div>
+                <div class="ods-card color-17" data-title="Alianzas" data-desc="Revitalizar la Alianza Mundial para el Desarrollo Sostenible."><span>17</span> Alianzas</div>
+            </div>
+        </section>
+    </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-desc"></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 - Agenda 2030 Interactiva</p>
+    </footer>
+
+    <script>
+        const modal = document.getElementById("modal");
+        const modalTitle = document.getElementById("modal-title");
+        const modalDesc = document.getElementById("modal-desc");
+        const cards = document.querySelectorAll(".ods-card");
+        const closeBtn = document.querySelector(".close-btn");
+
+        cards.forEach(card => {
+            card.addEventListener("click", () => {
+                modalTitle.innerText = card.getAttribute("data-title");
+                modalDesc.innerText = card.getAttribute("data-desc");
+                modal.style.display = "flex";
+            });
+        });
+
+        closeBtn.onclick = () => modal.style.display = "none";
+        
+        window.onclick = (event) => {
+            if (event.target == modal) modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>
